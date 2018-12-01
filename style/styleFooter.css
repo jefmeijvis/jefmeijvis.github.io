@@ -1,0 +1,39 @@
+.footer{
+    grid-column-gap: 10px;
+    position : absolute;
+    color : white;
+    left : 0;
+    height : 30%;
+    width : 100%;
+    background-color: #2c2c2c;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+            " . about about about about . links links . social social ."
+}
+
+.about,.links,.social{
+    color:white;
+    padding : 10px;
+}
+
+.about{grid-area:about;}
+.links{grid-area:links;}
+.social{grid-area:social;}
+
+.footerlink{
+    text-decoration: none;
+    color:white;
+    width:100%;
+}
+
+.footerimage{
+    width: 100px;
+    height : auto;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.footerimage:hover{
+    transform : scale(1.5);
+}

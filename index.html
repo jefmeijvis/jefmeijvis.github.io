@@ -1,119 +1,82 @@
 <!DOCTYPE html>
 <html>
-<title>Jef Meijvis</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style/style.css">
-<link rel="icon" href="images/icon-man.png">
-<body>
+<head>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Firebase & Firestore-->
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style/styleBody.css">
+    <link rel="stylesheet" href="style/styleNavigation.css">
+    <link rel="stylesheet" href="style/styleFooter.css">
+    <!-- Custom js scripts -->
+    <script src="scripts/database.js"></script>
+    <script src="scripts/firebaseLoader.js"></script>
+    <!-- Title -->
+    <title>Website</title>
+</head>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="w3-bar-item w3-button"><b>Jef</b> Meijvis</a>
-    <!-- Float links to the right. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
-      <a href="#projects" class="w3-bar-item w3-button">Projecten</a>
-      <a href="#about" class="w3-bar-item w3-button">Over</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-      <a href="#contact" class="w3-bar-item w3-button">Test</a>
-    </div>
-  </div>
-</div>
-
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="images/achtergrond.png" alt="Mooie foto" width="1500" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Jef</b></span> <span class="w3-hide-small w3-text-light-grey">Meijvis</span></h1>
-  </div>
-</header>
-
-<!-- Page content -->
-<div class="w3-content w3-padding" style="max-width:1564px">
-
-  <!-- Project Section -->
-  <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
-  </div>
-
-  <div class="w3-row-padding">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">View on Github</div>
-        <a href="https://github.com/jefmeijvis/jefmeijvis.github.io"><img src="images/button-git.png" title="Github" style="width:100%" /></a>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Kerstbomen</div>
-          <a href="https://jefmeijvis.github.io/Kerstbomen/"><img src="images/test.png" title="Kerstbomen" style="width:100%" /></a>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Empty</div>
-        <img src="images/button-empty.png" alt="Afbeelding" style="width:100%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Empty</div>
-        <img src="images/button-empty.png" alt="Afbeelding" style="width:100%">
-      </div>
-    </div>
-  </div>
-
-  <div class="w3-row-padding">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Empty</div>
-        <img src="images/button-empty.png" alt="Afbeelding" style="width:99%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Zesde foto</div>
-        <img src="images/button-empty.png" alt="Afbeelding" style="width:99%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Empty</div>
-        <img src="images/button-empty.png" alt="Afbeelding" style="width:99%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Empty</div>
-        <img src="images/button-empty.png" alt="Afbeelding" style="width:99%">
-      </div>
-    </div>
-  </div>
-
-  <!-- About Section -->
-  <div class="w3-container w3-padding-32" id="about">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Over</h3>
-    <p>Beschrijving
-    </p>
+<!--/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////// N A V I G A T I O N    /////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////-->
+  <div class = navigation>
+      <a href="index.html" class = home><i class="material-icons">home</i><h2>Jef Meijvis</h2></a>
+    <p class = center></p>
+    <a href="index.html" class = linkone><i class="material-icons">work_outline</i><h2>Projects</h2></a>
+    <a href="index.html" class = linktwo><i class="material-icons">invert_colors</i><h2>Graphic Design</h2></a>
+    <a href="index.html" class = linkthree><i class="material-icons">location_on</i><h2>Home</h2></a>
   </div>
 
 
-  <!-- Contact Section -->
-  <div class="w3-container w3-padding-32" id="contact">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact gegevens</h3>
-    <p><b>Email:</b> jef.meijvis@hotmail.com</p>
-  </div>
+<!--/////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////  C O N T E N T    ////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////-->
+    <div class = content>
+        <div class = photo>
+            <h2 class = cardtitle>Hi</h2>
+            <p class = cardtext>Welcome to my homepage. Unfortunately there isn't really that much to see around here at the moment. However, I plan on slowly adding
+                more projects of mine. The site itself is also still under construction, as I'm still learning about web development. Feel free to come back when everything is a bit more polished :)</p>
+            <p>Stay tuned!</p>
+        </div>
+        <div class = desc>
+            <h2 class = cardtitle>About this site</h2>
+            <p class = cardtext>The entire site was made with Google's Material Design guidelines in mind. More information about this can be found at <a href="https://material.io/">Material.io</a>.
+            These guidelines determine everything from colors to fonts and shadows.</p>
+            <p>The entire codebase can be found online at <a href="https://github.com/jefmeijvis/jefmeijvis.github.io">Github</a>. Feel free to look around</p>
+        </div>
+    </div>
 
-<!-- End page content -->
+<div class = content>
+    <div class = photo>
+        <p>Photo goes here</p>
+    </div>
+    <div class = desc>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+    </div>
 </div>
 
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-  <p>Website by <a href="mailto:jef.meijvis@hotmail.com" title="jef.meijvis@hotmail.com" target="_blank" class="w3-hover-text-green">Jef Meijvis</a></p>
-    <p>Template provided by <a href="https://www.w3schools.com/" title="w3schools" target="_blank" class="w3-hover-text-green">www.w3schools.com</a></p>
-</footer>
+<!--/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////  F O O T E R    /////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////-->
+<div class = footer>
+    <div class = about>
+        <h2>About</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+    </div>
+
+    <div class = links>
+        <h2>Links</h2>
+        <a href="index.html" class = footerlink>Home</a>
+    </div>
+
+    <div class = social>
+        <h2>Social Media</h2>
+        <a href="https://www.facebook.com"><img class = footerimage src="fb.png" title="Facebook" alt="Facebook"></a>
+    </div>
+</div>
 
 </body>
 </html>
