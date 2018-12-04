@@ -4,7 +4,6 @@ const project = "homepage";
 
 function main()
 {
-    console.log("main");
     // Main logic goes here
     initVariables()
     initFirebase()

@@ -7,6 +7,7 @@
     <!-- Firebase & Firestore-->
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style/styleNavigation.css">
     <link rel="stylesheet" href="style/styleFooter.css">
@@ -14,6 +15,7 @@
     <!-- Custom js scripts -->
     <script src="scripts/database.js"></script>
     <script src="scripts/firebaseLoader.js"></script>
+    <script src="scripts/visitorsGraph.js"></script>
     <!-- Title -->
     <title>Website</title>
 
@@ -27,7 +29,7 @@
     <p class = center></p>
     <a href="index.html" class = linkone><i class="material-icons">work_outline</i><h2>Projects</h2></a>
     <a href="index.html" class = linktwo><i class="material-icons">invert_colors</i><h2>Graphic Design</h2></a>
-    <a href="index.html" class = linkthree><i class="material-icons">location_on</i><h2>Home</h2></a>
+    <a href="graph.html" class = linkthree><i class="material-icons">data_usage</i><h2>Visitors</h2></a>
 </div>
 
 
@@ -60,3 +62,118 @@
         <a href="https://www.facebook.com"><img class = footerimage src="fb.png" title="Facebook" alt="Facebook"></a>
     </div>
 </div>
+
+<script>
+    /////////////////////////////////////////////////////////
+    //////              D3.JS GRAPH                     /////
+    /////////////////////////////////////////////////////////
+    console.log("Graphing")
+    /// CONFIG VARIABLES ///
+    let text_color = "white";
+    let color_on = "black";
+    let color_off = "gray";
+    let amountOfFloors = 1;
+    //// END OF CONFIG ////
+
+    var collection = [];
+    for (let a = 0 ; a < amountOfFloors ; a++)
+    {
+        let data = [];
+        for (let i = 0 ; i < 20 ; i++)
+        {
+            data.push(
+                {
+                    date: new Date().getUTCDate() + i*1000*60*60*24, // add one day for each data point
+                    value: 2.5 + 0.5*Math.sin(i/3 + a) + 0.1*Math.sin(i/0.6 + a) + 0.9*Math.sin(i/4 - a/2) + 0.5*Math.sin(i/16 + a) + 0.5*Math.sin(i/19)
+                });
+        }
+        collection.push(data);
+    }
+
+    let data = [10,20,10,11,12,25,12];
+
+    var container = d3.select("body").selectAll("div.graph");
+    console.log(container);
+    var svgSelection = container.append("svg")
+        .attr("width", 50)
+        .attr("height", 50);
+
+    var svgWidth = 700, svgHeight = 400;
+    var margin = { top: 20, right: 20, bottom: 30, left: 30 };
+    var width = svgWidth - margin.left - margin.right;
+    var height = svgHeight - margin.top - margin.bottom;
+
+    let svg = container.append("svg")
+        .attr("width", svgWidth)
+        .attr("height", svgHeight);
+
+    var g = svg.append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")"
+        );
+
+    var x = d3.scaleTime().rangeRound([0, width]);
+    var y = d3.scaleLinear().rangeRound([height, 0]);
+
+    var line = d3.line()
+        .x(function(d) { return x(d.date)})
+        .y(function(d) { return y(d.value)})
+    x.domain(d3.extent(collection[0], function(d) { return d.date }));
+
+    y.domain([0, 5]);
+
+    g.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+        .select(".domain")
+        .remove();
+
+    var area = d3.area()
+        .x(function(d) { return x(d.date); })
+        .y0(height)
+        .y1(function(d) { return y(d.value); });
+
+    for ( let i = amountOfFloors-1 ; i >= 0 ; i--)
+    {
+        g.append("path")
+            .datum(collection[i])
+            .attr("fill", "none")
+            .attr("stroke", color_off)
+            .attr("stroke-linejoin", "round")
+            .attr("stroke-linecap", "round")
+            .attr("stroke-width", 3)
+            .attr("d", line)
+            .on("mouseover", mouseEnter)
+            .on("mouseout", mouseLeave);
+
+
+    }
+
+    g.append("g")
+        .call(d3.axisLeft(y))
+        .append("text")
+        .attr("fill", text_color)
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", "0.71em")
+        .attr("text-anchor", "end")
+        .text("Value");
+
+
+
+
+    function mouseEnter()
+    {
+        d3.select(this)
+            .attr("stroke-width", 8)
+            .attr("stroke",color_on);
+    }
+
+    function mouseLeave()
+    {
+        d3.select(this)
+            .attr("stroke-width", 3)
+            .attr("stroke",color_off);
+    }
+</script>
+
