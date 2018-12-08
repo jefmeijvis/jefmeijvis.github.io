@@ -2,3 +2,13 @@
     height: 500px;
     width : auto;
 }
+
+body {
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+body.fade {
+    opacity: 0;
+    transition: none;
+}

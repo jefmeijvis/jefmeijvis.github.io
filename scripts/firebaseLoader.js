@@ -1,5 +1,6 @@
 window.onload = main;
 let p1,p2,p3,a,id,database;
+var collection;
 const project = "homepage";
 
 function main()
@@ -8,6 +9,9 @@ function main()
     initVariables()
     initFirebase()
     logInfo();
+    collection = loadData();
+    graphConfig();
+    createGraph();
 }
 
 function initVariables()
