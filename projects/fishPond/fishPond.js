@@ -22,6 +22,7 @@ function setup()
   }
 
   createBackground();
+  imageMode(CENTER);
 }
 
 
@@ -29,7 +30,7 @@ function draw()
 {
   if (active)
   {
-    image(bg,0,0,width,height);
+    image(bg,width/2,height/2,bg.width,bg.height);
     for (let i = 0; i < amount_of_fish; i++) {
       let myFish = fish[i]
       myFish.update();
@@ -59,11 +60,13 @@ function mousePressed(event)
 function createBackground()
 {
 
-  bg = createGraphics(width*2,height*2);
+  bg = createGraphics(width,height);
   bg.noStroke();
   bg.background("#f1f1f1");
   bg.fill(29, 84, 173,5);
   for (let i = 0 ; i < 50 ; i++)
-  bg.ellipse(width/2,height/2,400-i,400-i);
+  bg.ellipse(bg.width/2,bg.height/2,400-i,400-i);
+  bg.fill("red");
+  bg.ellipse(bg.width/2,0,30,30);
 }
 
