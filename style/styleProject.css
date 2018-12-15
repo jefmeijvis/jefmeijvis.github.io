@@ -1,4 +1,4 @@
-.sketch{
+.sketch , .sketchNoEffects{
     height : 400px;
     width : 400px;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -15,3 +15,6 @@
     transform : scale(1.2);
 }
 
+.sketchNoEffects:hover{
+    transform : scale(1.2);
+}
