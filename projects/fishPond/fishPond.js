@@ -7,7 +7,7 @@ let bg; // background
 
 function setup()
 {
-  myCanvas = createCanvas(400, 400);
+  myCanvas = createCanvas(400, 400,WEBGL);
   let containerlist = document.getElementsByClassName("sketchNoEffects");
   let container = containerlist[0];
   myCanvas.parent(container);
@@ -15,35 +15,36 @@ function setup()
   w = floor(width/div);
   h = floor(height/div);
   noStroke();
-  colorMode(HSB,255);
+
   for (var i = 0 ; i < amount_of_fish ; i++)
   {
     fish[i] = new Fish();
   }
-
-  createBackground();
-  imageMode(CENTER);
+  colorMode(HSB,255);
+  //createBackground();
 }
 
 
 function draw()
 {
+  translate(-width/2,-height/2);
   if (active)
   {
-    image(bg,width/2,height/2,bg.width,bg.height);
+    background("#f1f1f1");
+    fill("#476699");
+    ellipse(width/2,height/2,width,height,50)
+    //image(bg,0,0,width,height);
     for (let i = 0; i < amount_of_fish; i++) {
       let myFish = fish[i]
       myFish.update();
       myFish.show();
     }
   }
-
-  // if (frameCount > 10) active = false;
 }
 
 function mousePressed(event)
 {
-
+  colorMode(RGB,255);
   if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height)
     if (event.ctrlKey || event.altKey || event.shiftKey)
     {
@@ -51,16 +52,17 @@ function mousePressed(event)
     }
     else
     {
-      fill(0, 0, 255, 100);
-      ellipse(width/2,height/2, width, height);
+      fill(241, 241, 241,30);
+      rect(0,0, width, height);
       active = !active;
     }
+  colorMode(HSB,255);
 }
 
 function createBackground()
 {
 
-  bg = createGraphics(width,height);
+  bg = createGraphics(width,height,WEBGL);
   bg.noStroke();
   bg.background("#f1f1f1");
   bg.fill(29, 84, 173,10);
