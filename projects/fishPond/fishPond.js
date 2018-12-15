@@ -63,10 +63,8 @@ function createBackground()
   bg = createGraphics(width,height);
   bg.noStroke();
   bg.background("#f1f1f1");
-  bg.fill(29, 84, 173,5);
-  for (let i = 0 ; i < 50 ; i++)
-  bg.ellipse(bg.width/2,bg.height/2,400-i,400-i);
-  bg.fill("red");
-  bg.ellipse(bg.width/2,0,30,30);
+  bg.fill(29, 84, 173,10);
+  for (let i = 0 ; i < 25 ; i++)
+  bg.ellipse(bg.width/4,bg.height/4,200-i,200-i);
 }
 
