@@ -1,7 +1,7 @@
 let w,h;
 let div = 40;
 let fish = [];
-let amount_of_fish = 10;
+let amount_of_fish = 8;
 let active = true;
 let bg; // background
 
@@ -32,7 +32,7 @@ function draw()
   {
     background("#f1f1f1");
     fill("#476699");
-    ellipse(width/2,height/2,width,height,100)
+    ellipse(width/2,height/2,width,height,50)
     //image(bg,0,0,width,height);
     for (let i = 0; i < amount_of_fish; i++) {
       let myFish = fish[i]
