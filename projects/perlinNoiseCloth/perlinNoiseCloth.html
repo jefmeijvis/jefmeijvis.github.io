@@ -22,7 +22,7 @@
 /////////////////////////////// N A V I G A T I O N    /////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////-->
 <div class = navigation>
-    <a href="../../index.html" class = home><i class="material-icons">home</i><h2>Jef Meijvis</h2></a>
+    <a href="../../index.html" class = "home" ><i class="material-icons">home</i><h2>Jef Meijvis</h2></a>
     <p class = center></p>
     <a href="../../projects.html" class = linkone><i class="material-icons">work_outline</i><h2>Projects</h2></a>
     <a href="../../index.html" class = linktwo><i class="material-icons">invert_colors</i><h2>Graphic Design</h2></a>
@@ -33,10 +33,23 @@
 <!--/////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////  C O N T E N T    ////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////-->
-<p class = spacer></p>
-<p>Range</p><input type="range" min="0" max="100" value="50" class="slider" id="slider_range">
-<p>Zoom</p><input type="range" min="1" max="800" value="50" class="slider" id="slider_zoom">
-<p>Speed</p><input type="range" min="0" max="100" value="50" class="slider" id="slider_speed">
+<div class = options>
+
+    <div class = option>
+            <p class = optiontext>Turbulence</p><input type="range" min="0" max="100" value="50" class="slider" id="slider_range">
+    </div>
+
+    <div class = option>
+            <p class = optiontext>Noise scale</p><input type="range" min="1" max="800" value="50" class="slider" id="slider_zoom">
+    </div>
+
+    <div class = option>
+            <p class = optiontext>Speed</p><input type="range" min="0" max="100" value="50" class="slider" id="slider_speed">
+    </div>
+
+</div>
+
+
 <p class = spacer></p>
 
 <div class = sketchNoEffects>

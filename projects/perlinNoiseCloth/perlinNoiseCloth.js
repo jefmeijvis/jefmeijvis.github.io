@@ -20,7 +20,7 @@ function setup()
   noStroke();
   for ( let i = 0 ; i < OPTION_PARTICLES ; i++)
   {
-    points[i] = getPositionInCircle(width/2);
+    points[i] = getPositionInCircle(width/2-50);
   }
   t = 0;
 
@@ -47,6 +47,7 @@ function setup()
   {
     OPTION_SPEED= this.value/3;
   }
+  time = 0;
 }
 
 
@@ -55,8 +56,7 @@ function draw()
   if (active)
   {
     background("#f1f1f1");
-    t++;
-    time = OPTION_SPEED*t/1000.0;
+    time += OPTION_SPEED/1000.0;//OPTION_SPEED*t/1000.0;
 
     fill(0);
     for ( let i = 0 ; i < points.length ; i++)

@@ -31,6 +31,7 @@ body{
 
 .home:hover,.linkone:hover,.linktwo:hover,.linkthree:hover{
   background-color: rgba(255,255,255,0.30);
+    display : inline-block;
 }
 
 .home,.linkone,.linktwo,.linkthree{
@@ -61,3 +62,7 @@ body{
 .linkone{grid-area:linkone;}
 .linktwo{grid-area:linktwo;}
 .linkthree{grid-area:linkthree;}
+
+.navelement{
+    font-size: 35px;
+}
