@@ -64,8 +64,8 @@ function draw()
       let p = points[i];
       let x = p.x;
       let y = p.y;
-      x += p.z * (noise(time + p.x/(30*OPTION_ZOOM) , time + p.y/(30*OPTION_ZOOM) , time)-0.5)
-      y += p.z * (noise(time + p.x/(30*OPTION_ZOOM) , time + p.y/(30*OPTION_ZOOM) , time + 0.5)-0.5)
+      x += p.z * (noise(time + p.x/(30*OPTION_ZOOM) , time + p.y/(30*OPTION_ZOOM) , time)-0.5);
+      y += p.z * (noise(time + p.x/(30*OPTION_ZOOM) , time + p.y/(30*OPTION_ZOOM) , time + 0.5)-0.5);
 
       ellipse(x,y,2,2);
     }
