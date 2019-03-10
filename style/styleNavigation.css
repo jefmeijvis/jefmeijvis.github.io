@@ -32,9 +32,18 @@ body{
     text-decoration: none;
     color : white;
     display: flex;
+    flex-grow: 1;
     align-items: center;
 }
 
 .headerLink:hover{
     background-color: rgba(255,255,255,0.30);
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .article-border
+    {
+        flex-grow: 0;
+    }
 }
