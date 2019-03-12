@@ -1,7 +1,7 @@
 .article
 {
     width: 100%;
-    height: auto;
+    height : auto;
     display : inline-flex;
 }
 
@@ -11,6 +11,7 @@
     display: flex;
     height : 100px;
     flex-grow: 2;
+    min-width: 15%;
 }
 
 .article-content
@@ -31,19 +32,59 @@
 {
     display: flex;
     flex-grow: 2;
+    flex-direction: column;
 }
 
 .article-picture
 {
     display: flex;
     flex-grow: 1;
-    background-image : url('../projects/perlinNoiseCloth/preview_perlin_noise_cloth.PNG');
+    background-color: #ff9100;
+    max-width: 400px;
 }
 
-@media only screen and (max-width: 1000px)
+.article-title
+{
+    text-align: center;
+    padding: 2.5%;
+    font-size: 32px;
+    margin: 0;
+    width: 100%;
+    color: #656565;
+}
+
+.article-desc
+{
+    padding: 2.5%;
+    font-size: 24px;
+    color: #656565;
+    text-align: justify;
+}
+
+.date
+{
+    padding-left: 2.5%;
+    font-size: 16px;
+}
+
+@media only screen and (max-width:1000px)
 {
     .article-border
     {
         flex-grow: 0;
     }
+
+    .article-border
+    {
+        min-width: 0;
+    }
+}
+
+@media only screen and (max-width:650px)
+{
+    .article-picture
+    {
+        display: none;
+    }
+
 }
