@@ -33,25 +33,81 @@
 <div class = spacer></div>
 <div class = outer_div>
     <div class = inner_div>
-        <p class = title><b>Procedural generation with perlin noise</b></p>
+        <p class = title><b>Creating a sketch with P5.js</b></p>
 
         <p class = text>
-            Exploring noise in 2 dimensions
-            Exploring noise in 2 dimensions
-            Exploring noise in 2 dimensions
+            In this brief tutorial I would like to go through the steps required for creating your own <a href = "https://p5js.org/">P5.js</a> sketch.
+            If you're not familiar with P5, it's essentially a javascript library for drawing things in the browser.
+            The original goal of P5 was to bring the easy of use and accessibility of <a href = "https://processing.org/">Processing</a> to the browser.
         </p>
-        <img src ="../test/article_preview_1.png" height="400" width="400">
+
+        <img src ="../noise1/p5js.png" height="400" width="400">
+
         <p class = text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            P5 has a resourceful <a href = "https://p5js.org/reference">reference page</a>, and an <a href = "https://editor.p5js.org/">online editor.</a>
+            If you're just getting started with programming with P5, the editor might be a good starting point. The goal of this tutorial is to bring your
+            sketch to a standalone web page.
+        </p>
+
+        <p class = text>
+            So let's get started. The editor we will be using is <a href = "https://atom.io/">Atom</a>, but any other coding environment will work just as well.
+            Let's start of by creating a folder. We will name it P5project, but anything goes. Inside that folder, we'll create a new file,
+            and call it
+        </p>
+        <p class = c>
+            html.index
         </p>
 
         <div class = codeblock>
-            <p class = c>function draw()</p>
+            <p class = c>&lt;html&gt;</p>
+            <p class = c>&ensp; &lt;h1&gt;Our P5 sketch&lt;/h1&gt;</p>
+            <p class = c>&ensp; &lt;div class = "sketch"&gt;&lt;/div&gt;</p>
+            <p class = c>&lt;/html&gt;</p>
+        </div>
+
+        <p class = text>
+            This will be the entry point of our page. First we'll specify that we're using html.
+            Next up we create a H1 with our title inside. We also create a div element, this is where
+            we will place our sketch. We will give it a class, so we can refer to it later on. Let's call it "sketch".
+            This div will act as the container for our sketch.
+        </p>
+        <div class = spacer></div>
+        <p class = text>
+            We want to center the title and our sketch, so let's create a stylesheet (css). We name it
+        </p>
+        <p class = c>
+            style.css
+        </p>
+
+        <div class = codeblock>
+            <p class = c>body</p>
             <p class = c>{</p>
-            <p class = c>&ensp; background(0)</p>
-            <p class = c>&ensp; ellipse(mouseX,mouseY,radius,radius);</p>
+            <p class = c>&ensp;text-align:center;</p>
+            <p class = c>}</p>
+            <p class = c>&nbsp;</p>
+            <p class = c>.sketch</p>
+            <p class = c>{</p>
+            <p class = c>&ensp;width:400px;</p>
+            <p class = c>&ensp;height:400px;</p>
+            <p class = c>&ensp;margin:auto;</p>
+            <p class = c>&ensp;background-color:blue;</p>
             <p class = c>}</p>
         </div>
+
+        <p class = text>
+            Select the body, and align everything to the center. Then create the .sketch selector, and give it a width and height of 400 pixels.
+            Set the margin to auto, to make it align in the center, and give it a blue background color, so we can see where it is.
+            But we can't forget to include the .css file in our .html file, otherwise it wouldn't do anything. Lets add the following
+            line at the top of our html file, so we get this:
+        </p>
+        <p class = "c">html.index</p>
+        <div class = codeblock>
+            <p class = c>&lt;link rel = "stylesheet" href="style.css"&gt;</p>
+            <p class = c>&ensp; &lt;h1&gt;Our P5 sketch&lt;/h1&gt;</p>
+            <p class = c>&ensp; &lt;div class = "sketch"&gt;&lt;/div&gt;</p>
+            <p class = c>&lt;/html&gt;</p>
+        </div>
+
 
         <div class = sketch-container>
             <div class = sketch></div>
