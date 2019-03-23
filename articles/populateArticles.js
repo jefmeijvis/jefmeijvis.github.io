@@ -3,22 +3,14 @@ let insert_name, insert_date, insert_description , insert_image , insert_destina
 /////////////////////////////////////////////////////////////////////
 
 
-insert_name = "My first test article";
+insert_name = "Exploring noise";
 insert_date = "12 March 2019";
 insert_description =
-    "Description of the article goes here. A whole block of text about what the article discusses, " +
-    "what purpose it serves and some other things i can't think of right now.";
+    "Exploring noise series, starting of with 1D noise.";
 insert_image = 'articles/test/article_preview_1.png';
-insert_destination = "projects/perlinNoiseCloth/perlinNoiseCloth.html";
+insert_destination = "articles/noise1/article.html";
 addArticle(insert_name,insert_date,insert_description,insert_image,insert_destination);
 
-addArticle(insert_name,insert_date,insert_description,insert_image,insert_destination);
-
-addArticle(insert_name,insert_date,insert_description,insert_image,insert_destination);
-
-addArticle(insert_name,insert_date,insert_description,insert_image,insert_destination);
-
-addArticle(insert_name,insert_date,insert_description,insert_image,insert_destination);
 
 
 
