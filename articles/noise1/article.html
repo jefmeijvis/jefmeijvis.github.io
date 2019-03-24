@@ -38,10 +38,11 @@
         <p class = text>
             In this brief tutorial I would like to go through the steps required for creating your own <a href = "https://p5js.org/">P5.js</a> sketch.
             If you're not familiar with P5, it's essentially a javascript library for drawing things in the browser.
-            The original goal of P5 was to bring the easy of use and accessibility of <a href = "https://processing.org/">Processing</a> to the browser.
+            The original goal of P5 was to bring the easy of use and accessibility of <a href = "https://processing.org/">Processing</a> to the web.
         </p>
 
-        <img src ="../noise1/p5js.png" height="400" width="400">
+        <img alt = "logo" src ="../noise1/p5js.png" height="400" width="400">
+        <p class = description>The P5 logo</p>
 
         <p class = text>
             P5 has a resourceful <a href = "https://p5js.org/reference">reference page</a>, and an <a href = "https://editor.p5js.org/">online editor.</a>
@@ -109,6 +110,79 @@
             <p class = c>&lt;/html&gt;</p>
         </div>
 
+        <p class = text>
+            Now we can take a look a what we have made so far, just click on the index.html file, and open it with your browser.
+            At this point you should have a page with your title and sketch aligned in the center. The sketch is still just a 400
+            by 400 blue rectangle.
+        </p>
+
+        <p class = text>
+            We're ready to continue on with the fun stuff: creating the P5 sketch. Let's create a new file, and call it
+        </p>
+        <p class = "c">sketch.js</p>
+        <div class = codeblock>
+            <p class = c>function setup()</p>
+            <p class = c>{</p>
+            <p class = c>&ensp;let canvas = createCanvas(400,400);</p>
+            <p class = c>&ensp;let containerlist document.getElementsByClassName("sketch");</p>
+            <p class = c>&ensp;let container = containerlist[0];</p>
+            <p class = c>&ensp;canvas.parent(container);</p>
+            <p class = c>&nbsp;</p>
+            <p class = c>&ensp;frameRate(60);</p>
+            <p class = c>&ensp;textAlign(CENTER,CENTER);</p>
+            <p class = c>&ensp;noStroke();</p>
+            <p class = c>&ensp;fill(0);</p>
+            <p class = c>}</p>
+            <p class = c>&nbsp;</p>
+            <p class = c>function draw()</p>
+            <p class = c>{</p>
+            <p class = c>&ensp;background(255);</p>
+            <p class = c>&ensp;text("This is our sketch",width/2,height/2);</p>
+            <p class = c>&ensp;ellipse(mouseX,mouseY,150,150);</p>
+            <p class = c>}</p>
+        </div>
+
+        <p class = text>
+            So let's have a look, what's going on here?
+            We start of with a setup function. We create a canvas of 400 by 400 pixels, and store a reference
+            in a local variable called canvas. We get an array containing all the elements in the document called with a classname "Sketch"
+            , and store these in the local variable containerlist. Next up, we define our container as the first element in that list, since there is
+            only one such element in our page.
+            Finally we take the canvas and make the container it's parent.
+        </p>
+
+        <p class = text>
+            We also align the text in the center, both horizontally and vertically, and set the framerate to 60 fps.
+            We disable the stroke effect, and set our fill color to black;
+        </p>
+
+        <p class = text>
+            In the draw function we draw a white background. We also draw some text in the middle of the sketch.
+            Finally, we draw an circle of diameter 150 pixels at the mouse position.
+        </p>
+
+        <p class = text>
+            To tie everything together, we add a final line to our html file, which includes our sketch.js file.
+            Our final html.index looks as follows:
+        </p>
+
+        <p class = "c">sketch.js</p>
+        <div class = codeblock>
+            <script src="sketch.js"></script>
+            <p class = c>&lt;html&gt;</p>
+            <p class = c>&lt;link rel = "stylesheet" href="style.css"&gt;</p>
+            <p class = c>&lt;script src = "sketch.js"&gt;&lt;/script&gt;</p>
+            <p class = c>&ensp; &lt;h1&gt;Our P5 sketch&lt;/h1&gt;</p>
+            <p class = c>&ensp; &lt;div class = "sketch"&gt;&lt;/div&gt;</p>
+            <p class = c>&lt;/html&gt;</p>
+        </div>
+
+        <p class = text>
+            I included the sketch below, so we can have a look at our end result.
+            From here on, the sky is our limit, as we're able to include any kind of sketch in any kind of web page.
+            Go wild!
+        </p>
+
 
         <div class = sketch-container>
             <div class = sketch></div>
@@ -117,6 +191,17 @@
                 <a class = sourcecode href = "https://github.com/jefmeijvis/jefmeijvis.github.io">Source</a>
             </div>
         </div>
+
+        <p class = text>
+            In the end, we only used 3 files, and were able to create a sketch embedded in a web page.
+        </p>
+        <p class = "c">index.html</p>
+        <p class = "c">style.css</p>
+        <p class = "c">sketch.js</p>
+
+        <p class = text>
+            For any corrections, suggestions, comments, etc.. feel free to hit me up at [contact link].
+        </p>
 
 
     </div>

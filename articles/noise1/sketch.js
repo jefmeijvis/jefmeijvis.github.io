@@ -8,6 +8,8 @@ function setup()
     loadSketch(nr);
     frameRate(60);
     textAlign(CENTER,CENTER);
+    noStroke();
+    fill(0);
 }
 
 function draw()
@@ -15,20 +17,15 @@ function draw()
     switch (nr)
     {
         case 0: draw_0();break;
-        case 1: draw_1();break;
-        case 2: draw_2();break;
-        default: draw_0();break;
     }
 
 }
 
 function draw_0()
 {
-    let col = frameCount%255;
-    let col2 = (col-127)%255;
-    background(col);
-    stroke(col2);
-    text("SKETCH " + nr , width/2,height/2);
+    background(255);
+    text("This is our sketch", width/2,height/2);
+    ellipse(mouseX,mouseY,150,150);
 }
 
 function draw_1()

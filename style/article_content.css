@@ -66,6 +66,11 @@ a{
     margin : auto;
 }
 
+.description
+{
+    margin: 0;
+}
+
 .about{
     text-decoration: none;
 }

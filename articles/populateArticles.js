@@ -7,7 +7,7 @@ insert_name = "Creating a P5.js sketch";
 insert_date = "23 March 2019";
 insert_description =
     "A small tutorial on how to get started with P5.js. Things such as creating the html, css and javascript are explained.";
-insert_image = 'articles/test/article_preview_1.png';
+insert_image = 'articles/noise1/p5js.png';
 insert_destination = "articles/noise1/article.html";
 addArticle(insert_name,insert_date,insert_description,insert_image,insert_destination);
 
