@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../style/styleNavigation.css">
+        <link rel="stylesheet" href="../../style/styleFooter.css">
+        <link rel="stylesheet" href="../../style/styleBody.css">
+        <link rel="stylesheet" href="../../style/styleProject.css">
+        <link rel="stylesheet" href="../../style/article_content.css">
+        <!-- Title -->
+        <title>Animated favicon</title>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link id="favicon" rel="icon" href="">
+	</head>
+    <body onload="load()" >
+        <div class = navigation>
+            <script src="../../scripts/header.js"></script>
+        </div>
+        <div class = spacer></div>
+<div class = outer_div>
+    <div class = inner_div>
+        <p class = title><b>Animated favicons</b></p>
+
+        <p class = text>
+            A demo page for displaying different series of animated favicons.
+            All the favicons are displayed as SVG files. Use the buttons below to select an animation.
+            There's really not much use for it, but it's a fun thing nonetheless. 
+        </p>
+        <button type='button' onclick="selected=0;">🌑🌒🌓🌔🌕🌖🌗🌘</button>
+        <div class = spacer></div>
+        <button type='button' onclick="selected=1;">🥭🍎🍏🍅🍇🍈🍉🍊</button>
+        <div class = spacer></div>
+        <button type='button' onclick="selected=2;">✅🛑✔🚫☑⛔🆗🔝</button>
+        <div class = spacer></div>
+        <button type='button' onclick="selected=3;">🟥🟧🟨🟩🟦🟪🟫⬛</button>
+        <div class = spacer></div>
+        <button type='button' onclick="selected=4;">🕐🕑🕒🕓🕔🕕🕖🕗</button>
+        <div class = spacer></div>
+
+    </div>
+    </div>
+</div>
+	</body>
+</html>
+
+<script>
+	// Config
+    var icons = [];
+    var icons_moon = ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'];
+    var icons_fruit = ['🥭','🍎','🍏','🍅','🍇','🍈','🍉','🍊','🍋','🥝','🥑','🍓','🍒','🍑','🍍','🍌','🍐'];
+    var icons_status = ['✅','🛑','✔','🚫','☑','⛔','🆗','🔝'];
+    var icons_color = ['🟥','🟧','🟨','🟩','🟦','🟪','🟫','⬛','⬜'];
+    var icons_time = ['🕐','🕑','🕒','🕓','🕔','🕕','🕖','🕗','🕘','🕙','🕚','🕛'];
+
+    var updateInterval = 300; 
+    var selected = 0;
+	// -----
+	
+	var index = 0;
+	var favicon;
+
+	function load()
+	{
+		setInterval(updateIcon, updateInterval);
+		favicon = document.getElementById('favicon');
+	}
+	
+	function updateIcon()
+	{
+        switch(selected)
+        {
+            case 0:
+            icons = icons_moon;
+            break;
+            case 1:
+            icons = icons_fruit;
+            break;
+            case 2:
+            icons = icons_status;
+            break;
+            case 3:
+            icons = icons_color;
+            break;
+            case 4:
+            icons = icons_time;
+            break;
+        }
+		index = (index + 1)%icons.length;
+		favicon.href = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>" + icons[index]+ "</text></svg>"
+	}
+</script>

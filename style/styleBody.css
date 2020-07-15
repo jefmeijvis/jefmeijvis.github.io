@@ -11,6 +11,12 @@
             ". . . . . . . . . . . ."
 }
 
+body
+{
+    margin:0;
+    padding:0;
+}
+
 .photo{grid-area: photo;}
 .desc{grid-area: desc;}
 
