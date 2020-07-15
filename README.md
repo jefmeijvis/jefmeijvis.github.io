@@ -1,3 +1,2 @@
-#Project page
-
-.. to be completed
+Projects page hosted on Github pages.
+Accesible at https://jefmeijvis.github.io/
